@@ -11,6 +11,11 @@ class RomanNumeralsTest extends TestCase {
     $this->assertEquals($expected, (RomanNumerals::generate($number)));
   }
 
+  public function test_cannot_generates_roman_numeral_for_less_than_1() {
+    $this->expectException(InvalidArgumentException::class);
+    RomanNumerals::generate(0);
+  }
+
   public static function checks() {
     return [
       [1, 'I'],

@@ -2,6 +2,8 @@
 
 namespace App;
 
+use InvalidArgumentException;
+
 class RomanNumerals
 {
   const NUMERALS = [
@@ -21,12 +23,15 @@ class RomanNumerals
   ];
 
   public static function generate($number) {
+    if ($number < 1) {
+      throw new InvalidArgumentException('Number must be greater than 0');
+    }
+
     $result = '';
 
     foreach (static::NUMERALS as $arabic => $numeral) {
-      while ($number >= $arabic) {
+      for (; $number >= $arabic; $number -= $arabic) {
         $result .= $numeral;
-        $number -= $arabic;
       }
     }
 
