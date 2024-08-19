@@ -1,7 +1,7 @@
 <?php
 
-use App\Player;
-use App\TennisMatch;
+use App\TennisMatch\Player;
+use App\TennisMatch\TennisMatch;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
